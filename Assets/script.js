@@ -1,3 +1,36 @@
+// var city =$("#searchItem").val();
+// // Save API key 
+ var apiKey = "c18058442237a091008225c9b4803f9c";
+
+const searchForm = document.querySelector('.inputGroup')
+var searchItem = document.querySelector('#searchItem')
+
+searchForm.addEventListener('submit', function (e) {
+    e.preventDefault()
+    console.log(searchItem.value)
+
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchItem.value}&appid=${apiKey}`).then(function (response) {
+        return response.json()
+    }).then(function(data){
+        console.log(data)
+        getWeather(data.coord.lat, data.coord.lon)
+        //call the second api and hand it (data)
+    }).catch()
+})
+
+function getWeather(latitude, longitude){
+    console.log(latitude, longitude)
+
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}`).then(function(response){
+        return response.json()
+    }) .then(function(data){
+        console.log(data)
+
+    })
+    // fetch()
+}
+
+
 // Bring in DAYJS 
 
 // Check out  data reurned from API 
