@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background-color: aqua;
+}
+
+main {
+    display: flex;
+}
+
+.search {
+    background-color: sandybrown;
+    width: 20%;
+}
+
+.weather {
+    width: 80%;
+}
+
+.current {
+    background-color: yellow;
+}
+
+.forecast {
+    background-color: pink;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    width: 150px;
+    height: 300px;
+    border: 2px solid black;
+
+}
