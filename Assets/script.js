@@ -61,8 +61,8 @@ function renderCurrentWeather(cityName, forecastWeather, currentWeatherData) {
 };
 
 function renderForecastWeather(forecastWeather) {
-    var dayiteration = 0;
-    /*document.querySelectorAll('.card').forEach(function () {
+    /*var dayiteration = 0;
+    document.querySelectorAll('.card').forEach(function () {
         dayiteration++
         
         var result = forecastWeather.list.find(item => item.dt_txt = dayjs().add(dayiteration, 'day').format('YYYY-MM-DD'));
@@ -84,17 +84,21 @@ function renderForecastWeather(forecastWeather) {
     });*/
 
     var elements = document.getElementsByClassName('card')
-    for (var i = 0; i < elements.length; i++) {
+    for (var i = 0; i <= elements.length; i++) {
         let date = dayjs().add(i, 'day').format('MM/DD/YYYY');
-        console.log(date);
-        
-        elements[i].innerHTML = `
+        var filterDate = dayjs().add(i, 'day').format('YYYY-MM-DD');
+        filterDate = filterDate.concat(' 12:00:00');
+
+        var result = forecastWeather.list.find(item => item.dt_txt == filterDate);
+        console.log(result);
+       
+        /*elements[i].innerHTML = `
             <h3>${date}</h3>
             <p>Icon</p>
-            <p>Temp</p>
-            <p>Wind</p>
-            <p>Humidity</p>
-            `;
+            <p>${result.main.temp} °F</p>
+            <p>${result.wind.speed} MPH</p>
+            <p>${result.main.humidity}</p>
+            `;*/
     }
     
 };
