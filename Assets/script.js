@@ -62,11 +62,41 @@ function renderCurrentWeather(cityName, forecastWeather, currentWeatherData) {
 
 function renderForecastWeather(forecastWeather) {
     var dayiteration = 0;
-    document.querySelectorAll('.card').forEach(function () {
+    /*document.querySelectorAll('.card').forEach(function () {
         dayiteration++
+        
+        var result = forecastWeather.list.find(item => item.dt_txt = dayjs().add(dayiteration, 'day').format('YYYY-MM-DD'));
+        console.log(result);
+
         let date = dayjs().add(dayiteration, 'day').format('MM/DD/YYYY');
         console.log(date);
-    });
+        $(this).innerHTML = `
+            <h3>TEST</h3>
+                    <div>
+                        <h4>TEST</h4>
+                        <p>icon</p>
+                    </div>
+
+                    <p>TEST</p>
+                    <p>wind</p>
+                    <p>huminity</p>
+        `;        
+    });*/
+
+    var elements = document.getElementsByClassName('card')
+    for (var i = 0; i < elements.length; i++) {
+        let date = dayjs().add(i, 'day').format('MM/DD/YYYY');
+        console.log(date);
+        
+        elements[i].innerHTML = `
+            <h3>${date}</h3>
+            <p>Icon</p>
+            <p>Temp</p>
+            <p>Wind</p>
+            <p>Humidity</p>
+            `;
+    }
+    
 };
 
 // Bring in DAYJS
