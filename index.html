@@ -1,104 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
+      integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./Assets/style.css" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
-        integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./Assets/style.css">
-
-
-</head>
-
-<body>
+  <body>
     <header>
-        <div class="container">
-            <h1>Weather Dashboard</h1>
-        </div>
+      <div class="container">
+        <h1>Weather Dashboard</h1>
+      </div>
     </header>
 
     <main>
-        <div class="search">
-            <h5>Search for City</h5>
+      <div class="search">
+        <h5>Search for City</h5>
 
-            <form class="inputGroup">
-                <input id="searchItem" type="text" class="formController" placeholder="City name"
-                    class="input-group-append">
-                <button id="searchBtn" class="searchBtnPrimary" type="submit" id="buttonAddon">Go!</button>
-            </form>
+        <form class="inputGroup">
+          <input
+            id="searchItem"
+            type="text"
+            class="formController"
+            placeholder="City name"
+            class="input-group-append"
+          />
+          <button
+            id="searchBtn"
+            class="searchBtnPrimary"
+            type="submit"
+            id="buttonAddon"
+          >
+            Go!
+          </button>
+        </form>
+      </div>
+      <div class="weather">
+        <div class="current"></div>
+        <div class="forecast">
+          <div class="card">
+            <h3>Day</h3>
+            <p>Icon</p>
+            <p>Temp</p>
+            <p>Wind</p>
+            <p>Humidity</p>
+          </div>
+          <div class="card">
+            <h3>Day</h3>
+            <p>Icon</p>
+            <p>Temp</p>
+            <p>Wind</p>
+            <p>Humidity</p>
+          </div>
+          <div class="card">
+            <h3>Day</h3>
+            <p>Icon</p>
+            <p>Temp</p>
+            <p>Wind</p>
+            <p>Humidity</p>
+          </div>
+          <div class="card">
+            <h3>Day</h3>
+            <p>Icon</p>
+            <p>Temp</p>
+            <p>Wind</p>
+            <p>Humidity</p>
+          </div>
+          <div class="card">
+            <h3>Day</h3>
+            <p>Icon</p>
+            <p>Temp</p>
+            <p>Wind</p>
+            <p>Humidity</p>
+          </div>
         </div>
-        <div class="weather">
-
-            <div class="current">
-                <!-- <h3>City</h3>
-                <div>
-                    <h4>the date</h4>
-                    <p>icon</p>
-                </div>
-
-                <p>temp</p>
-                <p>wind</p>
-                <p>Humidity</p> -->
-            </div>
-            <div class="forecast">
-                <div class="card">
-                    <h3>Day</h3>
-                    <p>Icon</p>
-                    <p id="temp-0">Temp</p>
-                    <p>Wind</p>
-                    <p>Humidity</p>
-                </div>
-                <div class="card">
-                    <h3>Day</h3>
-                    <p>Icon</p>
-                    <p id="temp-8">Temp</p>
-                    <p>Wind</p>
-                    <p>Humidity</p>
-                </div>
-                <div class="card">
-                    <h3>Day</h3>
-                    <p>Icon</p>
-                    <p>Temp</p>
-                    <p>Wind</p>
-                    <p>Humidity</p>
-                </div>
-                <div class="card">
-                    <h3>Day</h3>
-                    <p>Icon</p>
-                    <p>Temp</p>
-                    <p>Wind</p>
-                    <p>Humidity</p>
-                </div>
-                <div class="card">
-                    <h3>Day</h3>
-                    <p>Icon</p>
-                    <p>Temp</p>
-                    <p>Wind</p>
-                    <p>Humidity</p>
-                </div>
-            </div>
-        </div>
+      </div>
     </main>
-
-
-
-    <!-- <div class="container-fluid"> 
-        <div class="row">
-            
-        
-            
-        </div>
-
-    </div> -->
-
     <script src="./Assets/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
-    crossorigin="anonymous"></script>
-
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
