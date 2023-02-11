@@ -5,18 +5,48 @@ var searchForm = document.querySelector(".inputGroup");
 var searchItem = document.querySelector("#searchItem");
 var currentWeatherEl = document.querySelector(".current");
 
-var lsSearches = [];
+// var lsSearches = [];
 // Event Listener
 searchForm.addEventListener("submit", function (e) {
   e.preventDefault();
   console.log(searchItem.value);
 
-  lsSearches.push(searchItem.value);
-  localStorage.setItem("Recent Searches", JSON.stringify(lsSearches));
+  if (
+    localStorage.getItem("weatherSearchHistory") &&
+    !localStorage.getItem("weatherSearchHistory").includes(searchItem.value)
+  ) {
+    const arrayFromStorage = JSON.parse(localStorage.getItem("weatherSearchHistory"));
+    arrayFromStorage.push(searchItem.value);
+    localStorage.setItem("weatherSearchHistory", JSON.stringify(arrayFromStorage));
+  } else if (!localStorage.getItem("weatherSearchHistory")) {
+    localStorage.setItem("weatherSearchHistory", JSON.stringify([searchItem.value]));
+  }
+populateHistory();
+  firstFetch(searchItem.value);
+});
+var buttonContainer = document.querySelector('#button-container')
+populateHistory();
+function populateHistory(){
+  const arrayFromStorage = JSON.parse(localStorage.getItem("weatherSearchHistory"));
 
+if (arrayFromStorage){
+  // 
+  buttonContainer.innerHTML=''
+  for (var i = 0; i < arrayFromStorage.length; i++){
+    const button = document.createElement('button')
+    button.innerText = arrayFromStorage[i]
+    button.addEventListener('click', (e)=>{
+      firstFetch(e.target.textContent)
+    })
+    buttonContainer.append(button)
+  }
+}
+}
+
+function firstFetch(searchTerm) {
   // Write Fetch Call to API
   fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${searchItem.value}&appid=${apiKey}`
+    `https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&appid=${apiKey}`
   )
     // Check out  data reurned from API
     .then(function (response) {
@@ -28,7 +58,7 @@ searchForm.addEventListener("submit", function (e) {
       //call the second api and hand it (data)
     })
     .catch();
-});
+}
 
 // Requires City name, returns Lat.Lon
 function getWeather(latitude, longitude, cityName, currentWeatherData) {
@@ -89,5 +119,3 @@ function renderForecastWeather(forecastWeather) {
               `;
   }
 }
-
-

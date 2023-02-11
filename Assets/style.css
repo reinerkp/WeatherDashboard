@@ -42,3 +42,9 @@ main {
     background-color: rgba(16, 16, 88, 0.562);
 
 }
+
+#button-container{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
